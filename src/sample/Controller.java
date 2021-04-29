@@ -42,6 +42,9 @@ public class Controller {
     private Text pressure;
 
     @FXML
+    private Text precipitation;
+
+    @FXML
     void initialize() {
         city.setOnAction(event -> {
           getContent();
@@ -86,6 +89,7 @@ public class Controller {
                 max.setText("maximum: " + jsonObject.getJSONObject("main").getDouble("temp_max")+"°");
                 min.setText("minimum: " + jsonObject.getJSONObject("main").getDouble("temp_min")+"°");
                 pressure.setText("pressure: " + jsonObject.getJSONObject("main").getDouble("pressure"));
+                precipitation.setText("precipitation: " + jsonObject.getJSONArray("weather").getJSONObject(0).getString("description"));
             }
             System.out.println(outPut);
         }
